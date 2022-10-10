@@ -5,26 +5,31 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import WorkExperience from "../components/WorkExperience";
+// import WorkExperience from "../components/WorkExperience";
 import { Experience, PageInfo, Project, Skill, Social } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 // import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSkills } from "../utils/fetchSkills";
-import { fetchProjects } from "../utils/fetchProjects";
+// import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSocial } from "../utils/fetchSocials";
 import Link from "next/link";
+import { urlFor } from "../sanity";
+import Head from "next/head";
 
 type Props = {
   pageInfo: PageInfo;
-  experiences: Experience[];
+  // experiences: Experience[];
   skills: Skill[];
-  projects: Project[];
+  // projects: Project[];
   socials: Social[];
 };
 
-const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
+const Home = ({ skills, pageInfo, socials }: Props) => {
   return (
     <div className="snap-y snap-mandatory h-screen overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 bg-[rgb(36,36,36)] text-white z-0">
+      <Head>
+        <title>Gabriel Sitorus's Portfolio</title>
+      </Head>
       <Header socials={socials} />
 
       {/* Hero Banner Section */}
@@ -48,9 +53,9 @@ const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="snap-start">
+      {/* <section id="projects" className="snap-start">
         <Projects projects={projects} />
-      </section>
+      </section> */}
 
       {/* Contact Me Section */}
       <section id="contact" className="snap-start">
@@ -62,7 +67,7 @@ const Home = ({ projects, skills, pageInfo, experiences, socials }: Props) => {
           <div className="flex items-center justify-center">
             <img
               className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src="https://i.imgur.com/e2yvD6A.png"
+              src={urlFor(pageInfo?.heroImage).url()}
               alt=""
             />
           </div>
@@ -78,15 +83,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   // const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
+  // const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocial();
 
   return {
     props: {
       pageInfo,
-      experiences,
+      // experiences,
       skills,
-      projects,
+      // projects,
       socials,
     },
     // Next.js will attempt to re-generate the page:

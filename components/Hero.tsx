@@ -27,7 +27,7 @@ function Hero({}: Props) {
         width={150}
         className="rounded-full relative mx-auto object-cover"
       />
-      <div>
+      <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
           Software Engineer
         </h2>

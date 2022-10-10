@@ -1,17 +1,18 @@
-import React from "react";
-import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
-import BackgroundCircles from "./BackgroundCircles";
-import Image from "next/image";
-import profile from "../public/profile.jpg";
-import prof_pic from "../public/prof_pic.jpg";
 import Link from "next/link";
+import React from "react";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
+import BackgroundCircles from "./BackgroundCircles";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-function Hero({}: Props) {
+function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
-      "Welcome! My name is Gabriel Sitorus...",
+      `Welcome! My name is ${pageInfo.name}...`,
       "GuyWhoLovesToCode.tsx",
       "return progress > perfect",
     ],
@@ -21,15 +22,14 @@ function Hero({}: Props) {
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
-      <Image
-        src={prof_pic}
-        height={150}
-        width={150}
-        className="rounded-full relative mx-auto object-cover"
+      <img
+        className="relative rounded-full h-32 w-32 mx-auto object-cover"
+        src={urlFor(pageInfo?.heroImage).url()}
+        alt=""
       />
-      <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-          Software Engineer
+      <div className="z-20 relative">
+        <h2 className="tracking-[15px] text-sm uppercase text-gray-500 pb-2">
+          {pageInfo?.role}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>
@@ -37,19 +37,19 @@ function Hero({}: Props) {
         </h1>
 
         <div className="pt-5">
-          <Link href='#about'>
+          <Link href="#about">
             <button className="heroButton">About</button>
           </Link>
 
-          <Link href='#experience'>
+          <Link href="#experience">
             <button className="heroButton">Experience</button>
           </Link>
 
-          <Link href='#skills'>
+          <Link href="#skills">
             <button className="heroButton">Skills</button>
           </Link>
 
-          <Link href='#projects'>
+          <Link href="#projects">
             <button className="heroButton">Projects</button>
           </Link>
         </div>

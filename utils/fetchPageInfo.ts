@@ -1,9 +1,7 @@
 import { PageInfo } from "../typings";
 
 export const fetchPageInfo = async () => {
-  const res = await fetch(
-    `$http://localhost:3000/api/getPageInfo`
-  );
+  const res = await fetch(`http://localhost:3000/api/getPageInfo`);
 
   // check res for error
   if (!res.ok) {

@@ -1,10 +1,11 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import type { NextApiRequest, NextApiResponse } from "next";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../sanity";
 import { PageInfo } from "../../typings";
 
 const pageInfoQuery = groq`
-*[_type == "pageInfo"][0]
+  *[_type == "pageInfo"][0]
 `;
 
 type Data = {
@@ -13,7 +14,7 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<Data>
 ) {
   const pageInfo: PageInfo = await sanityClient.fetch(pageInfoQuery);
 

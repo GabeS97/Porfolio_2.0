@@ -13,8 +13,8 @@ import { fetchSkills } from "../utils/fetchSkills";
 // import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSocial } from "../utils/fetchSocials";
 import Link from "next/link";
-import { urlFor } from "../sanity";
 import Head from "next/head";
+import { urlFor } from "../sanity";
 
 type Props = {
   pageInfo: PageInfo;

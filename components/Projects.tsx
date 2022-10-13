@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
 import Link from "next/link";
+import { SocialIcon } from "react-social-icons";
 
 type Props = {
   projects: Project[];
@@ -51,6 +52,13 @@ function Projects({ projects }: Props) {
                 {project.summary}
               </p>
             </div>
+            <SocialIcon
+              className="px-6 py-2 border border-[#242424]  rounded-full uppercase text-xs tracking-widest transition-all text-gray-500 hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;"
+              target="_blank"
+              url={project.projectUrl}
+              fgColor="gray"
+              bgColor="transparent"
+            />
           </motion.div>
         ))}
       </div>

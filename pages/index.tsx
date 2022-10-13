@@ -10,21 +10,21 @@ import { Experience, PageInfo, Project, Skill, Social } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 // import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchSkills } from "../utils/fetchSkills";
-// import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSocial } from "../utils/fetchSocials";
 import Link from "next/link";
 import Head from "next/head";
 import { urlFor } from "../sanity";
+import { fetchProjects } from "../utils/fetchProjects";
 
 type Props = {
   pageInfo: PageInfo;
   // experiences: Experience[];
   skills: Skill[];
-  // projects: Project[];
+  projects: Project[];
   socials: Social[];
 };
 
-const Home = ({ skills, pageInfo, socials }: Props) => {
+const Home = ({ skills, pageInfo, socials, projects }: Props) => {
   return (
     <div className="snap-y snap-mandatory h-screen overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 bg-[rgb(36,36,36)] text-white z-0">
       <Head>
@@ -53,9 +53,9 @@ const Home = ({ skills, pageInfo, socials }: Props) => {
       </section>
 
       {/* Projects Section */}
-      {/* <section id="projects" className="snap-start">
+      <section id="projects" className="snap-start">
         <Projects projects={projects} />
-      </section> */}
+      </section>
 
       {/* Contact Me Section */}
       <section id="contact" className="snap-start">
@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   // const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
-  // const projects: Project[] = await fetchProjects();
+  const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocial();
 
   return {
@@ -91,7 +91,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       pageInfo,
       // experiences,
       skills,
-      // projects,
+      projects,
       socials,
     },
     // Next.js will attempt to re-generate the page:

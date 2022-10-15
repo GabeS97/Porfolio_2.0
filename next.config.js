@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  images: {
+    domains: ['cdn.sanity.io']
   }
 }
 

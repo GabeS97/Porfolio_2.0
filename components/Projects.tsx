@@ -4,6 +4,7 @@ import { Project } from "../typings";
 import { urlFor } from "../sanity";
 import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
+import Image from "next/image";
 
 type Props = {
   projects: Project[];
@@ -43,10 +44,20 @@ function Projects({ projects }: Props) {
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
                 <span className="decoration-[#F7AB0A]/50 underline">
-                  Case Study {i + 1} of {projects.length}:
+                  Project {i + 1} of {projects.length}:
                 </span>{" "}
                 {project.title}
               </h4>
+
+              <div className="flex items-center justify-center gap-x-2 ">
+                {project.technologies.map((p) => (
+                  <Image
+                    src={urlFor(p?.image).url()}
+                    height='50'
+                    width='50'
+                  />
+                ))}
+              </div>
 
               <p className="text-lg text-center md:text-left">
                 {project.summary}

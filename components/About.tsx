@@ -34,10 +34,34 @@ function About({ pageInfo }: Props) {
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">
           Here is a{" "}
-          <span className="decoration-[#F7AB0A]/50 underline">little</span>{" "}
+          <span className="decoration-[#F7AB0A]/80 underline">little</span>{" "}
           background
         </h4>
-        <p className="text-lg">{pageInfo?.backgroundInformation}</p>
+        <p className="text-lg">
+          Hey! It's so good to have you, my name is Gabriel Sitorus. I am a
+          business grad turned software engineer. Upon my graduation from
+          Chapman University, the world was at the peak of COVID, which had made
+          applying to jobs a little bit more difficult, especially because I was
+          an international student living in the Unites States at the time. So
+          instead of putting all my efforts into pursuing a path in business, I
+          began to explore other paths and opportunities.
+          <br />
+          <br />
+          Coding stuck out to me because not only that I figured that with this
+          new skill I would able to code open new doors., but I understood that
+          although I can make a great impact through business, for me to create
+          the vehicle that will push for a better tomorrow, I NEEDED to be in
+          tech.
+          <br />
+          <br />
+          What you are looking at now; this portfolio, as well a few of the
+          projects linked below are representations of what I have learnt so far
+          as a software engineer, and I would love, if given the opportunity, to
+          continue this growth together.
+          <br />
+          <br />
+          Cheers 👋🏽
+        </p>
       </div>
     </motion.div>
   );

@@ -52,6 +52,10 @@ function Hero({ pageInfo }: Props) {
           <Link href="#projects">
             <button className="heroButton">Projects</button>
           </Link>
+
+          <Link href='/Latest Resume.pdf' target="_blank">
+            <button className="px-6 py-2 border border-[#242424]  rounded-full uppercase text-xs tracking-widest transition-all hover:border-[#F7AB0A] hover:text-[#F7AB0A] text-white font-bold">Resume</button>
+          </Link>
         </div>
       </div>
     </div>

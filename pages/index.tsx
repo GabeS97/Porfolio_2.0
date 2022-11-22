@@ -11,6 +11,8 @@ import { fetchSkills } from "../utils/fetchSkills";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSocial } from "../utils/fetchSocials";
 import Link from "next/link";
+import { urlFor } from "../sanity";
+
 
 type Props = {
   pageInfo: PageInfo;
@@ -54,7 +56,7 @@ const Home = ({ projects, skills, pageInfo, socials }: Props) => {
           <div className="flex items-center justify-center">
             <img
               className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src="https://i.imgur.com/e2yvD6A.png"
+              src={urlFor(pageInfo?.heroImage).url()}
               alt=""
             />
           </div>

@@ -21,6 +21,7 @@ function ContactMe({ pageInfo }: Props) {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     window.location.href = `mailto:${pageInfo.email}?subject=${data.subject}&body=Hi, my name is ${data.name}. ${data.message}`;
   };
@@ -59,7 +60,7 @@ function ContactMe({ pageInfo }: Props) {
           </div> */}
         </div>
 
-        <form
+        {/* <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col space-y-2 w-fit mx-auto"
         >
@@ -96,7 +97,7 @@ function ContactMe({ pageInfo }: Props) {
           >
             Submit
           </button>
-        </form>
+        </form> */}
       </div>
     </motion.div>
   );

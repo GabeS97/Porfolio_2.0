@@ -51,7 +51,11 @@ function Projects({ projects }: Props) {
 
               <div className="flex items-center justify-center gap-x-2 ">
                 {project.technologies.map((p) => (
-                  <Image src={urlFor(p?.image).url()} height="50" width="50" />
+                  <Image
+                  key={p._id}
+                  src={urlFor(p?.image).url()}
+                  height="50"
+                  width="50" />
                 ))}
               </div>
 

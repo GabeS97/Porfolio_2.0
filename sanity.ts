@@ -1,5 +1,5 @@
-import imageUrlBuilder from "@sanity/image-url";
 import { createClient } from "next-sanity";
+import createImageUrlBuilder from "@sanity/image-url";
 
 export const config = {
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
@@ -15,4 +15,6 @@ export const sanityClient = createClient(config);
  * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
  * Read more: https://www.sanity.io/docs/image-url
  **/
-export const urlFor = (source: any) => imageUrlBuilder(config).image(source);
+export const urlFor = (source: any) =>
+  createImageUrlBuilder(config).image(source);
+  

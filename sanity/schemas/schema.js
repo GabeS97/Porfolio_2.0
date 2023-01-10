@@ -21,7 +21,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     skill,
-    // experience,
+    experience,
     pageInfo,
     social,
     project,
